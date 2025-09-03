@@ -19,7 +19,7 @@ export async function getProjects(): Promise<import('@/types').Project[]> {
       .props(['id', 'title', 'slug', 'metadata', 'created_at', 'modified_at'])
       .depth(1);
     
-    return response.objects.sort((a, b) => {
+    return response.objects.sort((a: any, b: any) => {
       const dateA = new Date(a.metadata?.completion_date || a.created_at).getTime();
       const dateB = new Date(b.metadata?.completion_date || b.created_at).getTime();
       return dateB - dateA;
@@ -57,7 +57,7 @@ export async function getWorkExperience(): Promise<import('@/types').WorkExperie
       .props(['id', 'title', 'slug', 'metadata', 'created_at', 'modified_at'])
       .depth(1);
     
-    return response.objects.sort((a, b) => {
+    return response.objects.sort((a: any, b: any) => {
       const dateA = new Date(a.metadata?.start_date || a.created_at).getTime();
       const dateB = new Date(b.metadata?.start_date || b.created_at).getTime();
       return dateB - dateA;
@@ -78,7 +78,7 @@ export async function getTestimonials(): Promise<import('@/types').Testimonial[]
       .props(['id', 'title', 'slug', 'metadata', 'created_at', 'modified_at'])
       .depth(1);
     
-    return response.objects.sort((a, b) => {
+    return response.objects.sort((a: any, b: any) => {
       const dateA = new Date(a.metadata?.date_received || a.created_at).getTime();
       const dateB = new Date(b.metadata?.date_received || b.created_at).getTime();
       return dateB - dateA;
